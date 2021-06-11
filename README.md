@@ -17,7 +17,7 @@ We will demonstrate, how it's easy to:
     cd ../../model
     mvn clean install
   ```
-  companies-svc is deployed as a knative service on my openshift instance : http://companies-svc-companies-svc.apps.ocp4.ouachani.org, if you want to run the service locally follow the steps otherwise start skip this step :
+  companies-svc is deployed as a knative service on an openshift instance : http://companies-svc-companies-svc.apps.ocp4.ouachani.org, if you want to run the service locally follow the steps otherwise skip this step :
     * run mongodb
       ```sh
         cd ./docker/mongo/
@@ -128,7 +128,7 @@ the proposed offer is `Rate : 2.0% - 36 months`
 ## Deploy on openshift
 - Please install : 
   - oc cli : https://docs.openshift.com/container-platform/4.7/cli_reference/openshift_cli/getting-started-cli.html
-  - kn cli : https://docs.openshift.com/container-platform/4.7/serverless/installing_serverless/installing-kn.html#installing-kn
+  - kn cli : https://docs.openshift.com/container-platform/4.7/serverless/installing-kn.html
   - kogito cli : https://docs.jboss.org/kogito/release/latest/html_single/#proc-kogito-operator-and-cli-installing_kogito-deploying-on-openshift
 
 
@@ -184,7 +184,7 @@ the proposed offer is `Rate : 2.0% - 36 months`
     ```
 
   * deploy eligibility/notation/loan  service
-    modify the value of the property  `mp.messaging.outgoing.kogito_outgoing_stream.url` ../eligibility/src/main/resources/application.properties by `${K_SINK}`
+    modify the value of the property  `mp.messaging.outgoing.kogito_outgoing_stream.url` in ../eligibility/src/main/resources/application.properties by `${K_SINK}`
     ```sh
     #create the service throw kogito operator 
     oc apply -f ./manifest/services/keventing/kogito-services/eligibility-kogitoapp.yml
@@ -192,7 +192,7 @@ the proposed offer is `Rate : 2.0% - 36 months`
     mvn clean package  -DskipTests=true
     oc start-build eligibility --from-dir=target 
     ```
-    modify the value of the property  `mp.messaging.outgoing.kogito_outgoing_stream.url` ../notation/src/main/resources/application.properties by `${K_SINK}`
+    modify the value of the property  `mp.messaging.outgoing.kogito_outgoing_stream.url` in ../notation/src/main/resources/application.properties by `${K_SINK}`
 
     ```sh
     #create the service throw kogito operator 
@@ -226,7 +226,8 @@ the proposed offer is `Rate : 2.0% - 36 months`
 
   The eligibility process is triggered 
   ```sh
-    oc logs eligibility-68949b7b9f-6b9b5
+    oc logs eligibility-68949b7b9f-6b9b  
+  ```
   ```log
         --/ __ \/ / / / _ | / _ \/ //_/ / / / __/ 
     -/ /_/ / /_/ / __ |/ , _/ ,< / /_/ /\ \   
@@ -244,7 +245,10 @@ the proposed offer is `Rate : 2.0% - 36 months`
     Company number : 423646512exist ? true
   ```
 
-  followed by the notation service 
+  followed by notation service 
+  ```sh
+    oc logs notation-75f5fbd586-k4mg7
+  ```
   ```log
     __  ____  __  _____   ___  __ ____  ______ 
   --/ __ \/ / / / _ | / _ \/ //_/ / / / __/ 
