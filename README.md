@@ -1,3 +1,5 @@
+![Kogito](./docsimg/kogito.png)
+
 # kogito-knative-loan-demo
 
 ## Ambition
