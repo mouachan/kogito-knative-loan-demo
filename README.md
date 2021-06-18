@@ -23,7 +23,7 @@ We will demonstrate, how it's easy to:
   - oc cli : https://docs.openshift.com/container-platform/4.7/cli_reference/openshift_cli/getting-started-cli.html
   - kn cli : https://docs.openshift.com/container-platform/4.7/serverless/installing-kn.html
   - kogito cli : https://docs.jboss.org/kogito/release/latest/html_single/#proc-kogito-operator-and-cli-installing_kogito-deploying-on-openshift
-  - Infinispan, AMQ Streams or Strimzi and Kogito  Operator through OperatorHub
+  - install Infinispan, AMQ Streams (or Strimzi) and Kogito  Operator through OperatorHub
 
 
 * connect to Openshift server
@@ -122,8 +122,6 @@ We will demonstrate, how it's easy to:
   ```
 * Deploy kogito infra and notation service
 
-  * install Kogito operator
-
   * deploy the kogito infra 
     ```sh
     cd .. 
@@ -135,7 +133,7 @@ We will demonstrate, how it's easy to:
     kogito install infra kogito-infinispan-infra --kind Infinispan --apiVersion infinispan.org/v1 --resource-name kogito-infinispan 
     ```
 
-  * deploy eligibility/notation/loan  service
+  * deploy eligibility  service
     ```sh
     #create the service through kogito operator 
     cd eligibility
@@ -172,6 +170,7 @@ We will demonstrate, how it's easy to:
         mp.messaging.outgoing.kogito-variables-events.topic=kogito-variables-events
         mp.messaging.outgoing.kogito-variables-events.value.serializer=org.apache.kafka.common.serialization.StringSerializer
     ```
+  * deploy notation  service
 
     ```sh
     #create the service through kogito operator 
