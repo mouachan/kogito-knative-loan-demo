@@ -12,8 +12,8 @@ We will demonstrate, how it's easy to:
 
 - trigger each service through cloudevent, eligiblity service is triggered through :
   -  a http call using cloudevent specification
-  -  a production of an cloudevent in the `eligibilityapplication` topic
-  then the eligibility service will produce another cloudevent in the `notationapplication` topic, the cloudevent will trigger the notation service, a score and an offer are produced in `    
+  -  a push of a cloudevent on the `eligibilityapplication` kafka topic
+  then the eligibility service will produce another cloudevent on the `notationapplication` kafka topic, the cloudevent will trigger the notation service, a score and an offer are produced in `resultoffer` kafka topic    
 
 
 
@@ -23,7 +23,7 @@ We will demonstrate, how it's easy to:
   - oc cli : https://docs.openshift.com/container-platform/4.7/cli_reference/openshift_cli/getting-started-cli.html
   - kn cli : https://docs.openshift.com/container-platform/4.7/serverless/installing-kn.html
   - kogito cli : https://docs.jboss.org/kogito/release/latest/html_single/#proc-kogito-operator-and-cli-installing_kogito-deploying-on-openshift
-  - install Infinispan, AMQ Streams (or Strimzi) and Kogito  Operator through OperatorHub
+  - Infinispan, AMQ Streams (or Strimzi) and Kogito operators through OperatorHub
 
 
 * connect to Openshift server
