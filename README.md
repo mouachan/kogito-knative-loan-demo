@@ -4,16 +4,14 @@
 
 ## Ambition
 
-The goal is to demonstrate how it's easy and fast to deploy a business application and optimize consumption of resources (RAM/CPU), by using kogito to build business application and kafka to run application.
+Deploy a business application using Kogito resources.
 
-We will demonstrate, how it's easy to:
+We will :
 
 - deploy 2 business/kogito services that represent the eligibility and scoring parts of a loan  workflow.
 
-- trigger each service through cloudevent, eligiblity service is triggered through :
-  -  a http call using cloudevent specification
-  -  a push of a cloudevent on the `eligibilityapplication` kafka topic
-  then the eligibility service will produce another cloudevent on the `notationapplication` kafka topic, the cloudevent will trigger the notation service, a score and an offer are produced in `resultoffer` kafka topic    
+- invoke services 
+  *  the first service  `eligibility` can be invoked by an http call using cloudevent specification or a push of a cloudevent on the `eligibilityapplication` kafka topic.then the eligibility service will produce another cloudevent on the `notationapplication` kafka topic, the cloudevent will trigger the notation service, a score and an offer are produced in `resultoffer` kafka topic    
 
 
 
