@@ -66,18 +66,18 @@ We will :
     
 * Deploy Infinispan instance
   ```sh
-  cat <<EOF | oc apply -f -
-    apiVersion: infinispan.org/v1
-    kind: Infinispan
-    metadata:
-      name: kogito-infinispan
-      namespace: loan
-    spec:
-      container:
-        memory: 512Mi
-      image: 'quay.io/infinispan/server:11.0.7.Final'
-      logging: {}
-      replicas: 1
+  cat << EOF | oc apply -f -
+  apiVersion: infinispan.org/v1
+  kind: Infinispan
+  metadata:
+    name: kogito-infinispan
+    namespace: loan
+  spec:
+    container:
+      memory: 512Mi
+    image: 'quay.io/infinispan/server:11.0.7.Final'
+    logging: {}
+    replicas: 1
   EOF
   ```
 * Deploy Kafka instance
